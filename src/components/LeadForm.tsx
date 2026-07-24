@@ -5,10 +5,10 @@ type Step2 = { timeline: string };
 type Step3 = { zip: string; vision: string };
 
 const timelineOptions = [
-  { value: "asap", label: "בהקדם האפשרי" },
-  { value: "month", label: "במהלך החודש הקרוב" },
-  { value: "2-3months", label: "בעוד 2-3 חודשים" },
-  { value: "exploring", label: "רק בודק/ת אפשרויות" },
+  { value: "asap", label: "As soon as possible" },
+  { value: "month", label: "Within the next month" },
+  { value: "2-3months", label: "Within 2-3 months" },
+  { value: "exploring", label: "Just exploring my options" },
 ];
 
 export function LeadForm() {
@@ -26,10 +26,11 @@ export function LeadForm() {
   if (done) {
     return (
       <div className="bg-cream border border-border p-10 sm:p-14 text-center shadow-[0_20px_60px_-20px_rgba(0,0,0,0.15)]">
-        <div className="eyebrow mb-4">תודה רבה</div>
-        <h3 className="text-3xl sm:text-4xl mb-4">בקשתך התקבלה</h3>
+        <div className="eyebrow mb-4">Thank you</div>
+        <h3 className="text-3xl sm:text-4xl mb-4">Your request has been received</h3>
         <p className="text-muted-foreground max-w-md mx-auto">
-          נציג בכיר יחזור אליך תוך 24 שעות לתיאום ייעוץ אישי וללא התחייבות במטבח שלך בסן דייגו.
+          A senior designer will contact you within 24 hours to schedule a personal, no-obligation
+          consultation in your San Diego kitchen.
         </p>
       </div>
     );
@@ -52,7 +53,7 @@ export function LeadForm() {
                   n === step ? "text-ink" : "text-muted-foreground"
                 }`}
               >
-                שלב {n}
+                Step {n}
               </span>
             </div>
           </div>
@@ -63,21 +64,21 @@ export function LeadForm() {
         {step === 1 && (
           <div className="space-y-6">
             <div>
-              <div className="eyebrow mb-3">פרטים אישיים</div>
-              <h3 className="text-3xl sm:text-4xl">בואו נכיר</h3>
+              <div className="eyebrow mb-3">Personal Details</div>
+              <h3 className="text-3xl sm:text-4xl">Let's get acquainted</h3>
             </div>
-            <Field label="שם מלא" value={s1.fullName} onChange={(v) => setS1({ ...s1, fullName: v })} />
-            <Field label="מספר טלפון" type="tel" value={s1.phone} onChange={(v) => setS1({ ...s1, phone: v })} />
-            <Field label="כתובת אימייל" type="email" value={s1.email} onChange={(v) => setS1({ ...s1, email: v })} />
+            <Field label="Full Name" value={s1.fullName} onChange={(v) => setS1({ ...s1, fullName: v })} />
+            <Field label="Phone Number" type="tel" value={s1.phone} onChange={(v) => setS1({ ...s1, phone: v })} />
+            <Field label="Email Address" type="email" value={s1.email} onChange={(v) => setS1({ ...s1, email: v })} />
           </div>
         )}
 
         {step === 2 && (
           <div className="space-y-6">
             <div>
-              <div className="eyebrow mb-3">לוח זמנים</div>
+              <div className="eyebrow mb-3">Timeline</div>
               <h3 className="text-2xl sm:text-3xl leading-snug">
-                מה לוח הזמנים שלך להחלפת מטבח החלומות?
+                What is your timeline for your dream kitchen replacement?
               </h3>
             </div>
             <div className="space-y-3">
@@ -113,13 +114,13 @@ export function LeadForm() {
         {step === 3 && (
           <div className="space-y-6">
             <div>
-              <div className="eyebrow mb-3">מיקום וחזון</div>
-              <h3 className="text-3xl sm:text-4xl">ספרו לנו על המטבח</h3>
+              <div className="eyebrow mb-3">Location & Vision</div>
+              <h3 className="text-3xl sm:text-4xl">Tell us about your kitchen</h3>
             </div>
-            <Field label="מיקוד" value={s3.zip} onChange={(v) => setS3({ ...s3, zip: v })} />
+            <Field label="Zip Code" value={s3.zip} onChange={(v) => setS3({ ...s3, zip: v })} />
             <div>
               <label className="block text-sm text-muted-foreground mb-2">
-                מה תרצו לשנות במטבח הנוכחי כדי לקבל את מטבח החלומות שלכם?
+                What would you like to change in your current kitchen to get your dream kitchen?
               </label>
               <textarea
                 value={s3.vision}
@@ -137,7 +138,7 @@ export function LeadForm() {
               onClick={() => setStep(step - 1)}
               className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-ink transition-colors"
             >
-              ← חזרה
+              ← Back
             </button>
           ) : <span />}
 
@@ -146,7 +147,7 @@ export function LeadForm() {
             onClick={() => (step === 3 ? setDone(true) : setStep(step + 1))}
             className="btn-gold btn-gold-hover disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            {step === 3 ? "שליחת בקשה" : "המשך"}
+            {step === 3 ? "Submit Request" : "Continue"}
           </button>
         </div>
       </div>
