@@ -483,7 +483,6 @@ function Footer() {
         <div>
           <div className="eyebrow text-gold mb-3">Contact</div>
           <p className="text-sm">San Diego, California</p>
-          <p className="text-sm mt-1">hello@sd-kitchens.example</p>
         </div>
         <div>
           <div className="eyebrow text-gold mb-3">Hours</div>
@@ -491,9 +490,13 @@ function Footer() {
           <p className="text-sm mt-1">In-home visits by appointment</p>
         </div>
       </div>
-      <div className="container-lux mt-12 pt-6 border-t border-cream/10 text-xs tracking-[0.2em] uppercase text-cream/50 flex flex-wrap justify-between gap-3">
+      <div className="container-lux mt-12 pt-6 border-t border-cream/10 text-xs tracking-[0.2em] uppercase text-cream/50 flex flex-col md:flex-row flex-wrap justify-between gap-3">
         <span>© {new Date().getFullYear()} San Diego Kitchens</span>
-        <span>Bespoke · Handcrafted · San Diego</span>
+        <div className="flex flex-wrap gap-4 md:gap-6">
+          <a href="/privacy" className="hover:text-gold transition-colors">Privacy Policy</a>
+          <span className="hidden md:inline text-cream/20">·</span>
+          <span>Bespoke · Handcrafted · San Diego</span>
+        </div>
       </div>
     </footer>
   );
