@@ -37,7 +37,7 @@ export function LeadForm() {
   }
 
   return (
-    <div className="bg-cream border border-border shadow-[0_30px_80px_-30px_rgba(60,40,20,0.25)]">
+    <div className="bg-cream border border-border text-ink shadow-[0_30px_80px_-30px_rgba(60,40,20,0.25)]">
       {/* Progress */}
       <div className="flex items-center gap-2 px-8 sm:px-12 pt-8">
         {[1, 2, 3].map((n) => (
