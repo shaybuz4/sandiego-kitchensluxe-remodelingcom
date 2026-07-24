@@ -41,7 +41,7 @@
 }
 
 @layer base {
-  html { direction: rtl; }
+  html { direction: ltr; }
   * { border-color: var(--color-border); }
   body {
     background: var(--background);

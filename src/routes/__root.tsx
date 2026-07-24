@@ -77,10 +77,10 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "מטבחי יוקרה בסן דייגו | Bespoke Luxury Kitchens San Diego" },
-      { name: "description", content: "עיצוב ותכנון מטבחי יוקרה בהתאמה אישית בסן דייגו. הטבה מיוחדת של 25% הנחה על ייעוץ." },
-      { property: "og:title", content: "מטבחי יוקרה בסן דייגו" },
-      { property: "og:description", content: "Bespoke Luxury Kitchens in San Diego — Claim your 25% consultation discount." },
+      { title: "Bespoke Luxury Kitchens in San Diego" },
+      { name: "description", content: "Custom-designed luxury kitchens for San Diego homes. Claim your exclusive 25% consultation discount." },
+      { property: "og:title", content: "Bespoke Luxury Kitchens in San Diego" },
+      { property: "og:description", content: "Transform your home with custom craftsmanship and timeless design. Claim your 25% consultation discount." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
@@ -100,7 +100,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
 
 function RootShell({ children }: { children: ReactNode }) {
   return (
-    <html lang="he" dir="rtl">
+    <html lang="en" dir="ltr">
       <head>
         <HeadContent />
       </head>

@@ -11,10 +11,10 @@ export const Route = createFileRoute("/")({
   component: Landing,
   head: () => ({
     meta: [
-      { title: "מטבחי יוקרה בסן דייגו — 25% הנחה על ייעוץ | Bespoke Kitchens San Diego" },
-      { name: "description", content: "עיצוב ותכנון מטבחי יוקרה בהתאמה אישית בסן דייגו. הבטיחו 25% הנחה על ייעוץ הבית." },
-      { property: "og:title", content: "מטבחי יוקרה בסן דייגו — 25% הנחה" },
-      { property: "og:description", content: "Bespoke Luxury Kitchens in San Diego. Claim your 25% consultation discount." },
+      { title: "Bespoke Luxury Kitchens in San Diego — 25% Consultation Discount" },
+      { name: "description", content: "Custom-designed luxury kitchens for San Diego homes. Claim your exclusive 25% consultation discount today." },
+      { property: "og:title", content: "Bespoke Luxury Kitchens in San Diego — 25% Off Consultation" },
+      { property: "og:description", content: "Transform your home with custom craftsmanship and timeless design. Claim your exclusive 25% consultation discount." },
       { property: "og:image", content: imgA.url },
       { name: "twitter:image", content: imgA.url },
     ],
@@ -46,12 +46,12 @@ function Nav() {
     <nav className="absolute top-0 inset-x-0 z-30">
       <div className="container-lux flex items-center justify-between py-6">
         <div className="text-cream font-serif text-xl tracking-wider">
-          מטבחי סן דייגו
+          San Diego Kitchens
           <span className="mx-2 text-gold">·</span>
-          <span className="text-xs tracking-[0.3em] uppercase font-sans">San Diego</span>
+          <span className="text-xs tracking-[0.3em] uppercase font-sans">California</span>
         </div>
         <a href="#apply" className="hidden sm:inline-flex text-cream text-xs tracking-[0.2em] uppercase border border-cream/40 hover:border-gold hover:text-gold transition-colors px-5 py-2.5">
-          הבטיחו 25% הנחה
+          Claim 25% Off
         </a>
       </div>
     </nav>
@@ -65,32 +65,32 @@ function Hero() {
       <div className="absolute inset-0 hero-vignette" />
       <div className="relative container-lux pb-20 sm:pb-28 pt-32 text-cream">
         <Reveal>
-          <div className="eyebrow text-gold mb-6">מהדורה מוגבלת · סן דייגו</div>
+          <div className="eyebrow text-gold mb-6">Limited Edition · San Diego</div>
         </Reveal>
         <Reveal delay={150}>
           <h1 className="font-serif text-5xl sm:text-7xl lg:text-8xl leading-[1.05] max-w-4xl font-light">
-            מטבחי יוקרה
+            Bespoke Luxury
             <br />
-            <span className="italic text-gold">בהתאמה אישית</span>
+            <span className="italic text-gold">Kitchens</span>
             <br />
-            בסן דייגו
+            in San Diego
           </h1>
         </Reveal>
         <Reveal delay={300}>
           <p className="mt-8 max-w-xl text-lg text-cream/85 leading-relaxed">
-            לורם איפסום דולור סיט אמט, בעיצוב שמזמין אתכם להישאר.
-            אנחנו בוחרים חמישה בתים בסן דייגו לתהליך עיצוב מלווה — ומעניקים
-            <span className="text-gold"> 25% הנחה </span>
-            על הייעוץ האישי.
+            Transform your home with custom craftsmanship and timeless design.
+            Claim your exclusive
+            <span className="text-gold"> 25% consultation discount </span>
+            today.
           </p>
         </Reveal>
         <Reveal delay={450}>
           <div className="mt-10 flex flex-wrap gap-4 items-center">
             <a href="#apply" className="btn-gold btn-gold-hover bg-cream text-ink border-cream hover:bg-gold hover:border-gold">
-              הבטיחו 25% הנחה
+              Claim 25% Discount
             </a>
             <span className="text-xs tracking-[0.2em] uppercase text-cream/70">
-              ייעוץ חינם · ללא התחייבות
+              Free consultation · No obligation
             </span>
           </div>
         </Reveal>
@@ -100,7 +100,7 @@ function Hero() {
 }
 
 function Marquee() {
-  const items = ["עבודת יד", "אבן קלקטה", "עץ אלון טבעי", "פליז מוברש", "תאורה מוסתרת", "בהתאמה אישית"];
+  const items = ["Handcrafted", "Calacatta Stone", "Natural Oak", "Brushed Brass", "Concealed Lighting", "Fully Custom"];
   return (
     <div className="bg-ink text-cream/80 py-6 overflow-hidden border-y border-cream/10">
       <div className="flex gap-16 whitespace-nowrap animate-[marquee_40s_linear_infinite]">
@@ -110,7 +110,7 @@ function Marquee() {
           </span>
         ))}
       </div>
-      <style>{`@keyframes marquee { to { transform: translateX(100%); } }`}</style>
+      <style>{`@keyframes marquee { to { transform: translateX(-100%); } }`}</style>
     </div>
   );
 }
@@ -120,31 +120,32 @@ function About() {
     <section className="py-24 sm:py-32">
       <div className="container-lux grid lg:grid-cols-2 gap-16 items-center">
         <Reveal className="order-2 lg:order-1">
-          <div className="eyebrow mb-4">אודות · San Diego</div>
+          <div className="eyebrow mb-4">About · San Diego</div>
           <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6">
-            כל מטבח הוא <span className="italic text-gold-deep">סיפור</span> של הבית
+            Every kitchen tells the <span className="italic text-gold-deep">story</span> of a home
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-4">
-            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית. אנו מלווים משפחות בסן דייגו
-            בתהליך שלם — משיחת ההיכרות הראשונה, דרך תכנון תלת־ממדי, בחירת חומרים
-            ועד לרגע שבו המטבח החדש הופך למרכז הבית.
+            We guide San Diego families through the entire journey — from the first conversation
+            to 3D design, material selection, and the moment your new kitchen becomes the heart
+            of the home.
           </p>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            שילוב של חומרים אצילים, אור טבעי, ופרופורציות שקטות שמלוות אתכם עשרות שנים.
+            A blend of noble materials, natural light, and quiet proportions that stay with you
+            for decades.
           </p>
           <div className="mt-10 grid grid-cols-3 gap-6 border-t border-border pt-8">
-            <Stat n="120+" l="פרויקטים" />
-            <Stat n="15" l="שנות מומחיות" />
-            <Stat n="25%" l="הנחת ייעוץ" />
+            <Stat n="120+" l="Projects" />
+            <Stat n="15" l="Years of expertise" />
+            <Stat n="25%" l="Consultation off" />
           </div>
         </Reveal>
         <Reveal delay={200} className="order-1 lg:order-2">
           <div className="relative aspect-[4/5] overflow-hidden">
-            <img src={imgB.url} alt="עיצוב מטבחים מעץ אגוז" className="w-full h-full object-cover" />
-            <div className="absolute bottom-6 right-6 left-6 sm:left-auto sm:w-64 bg-cream/95 backdrop-blur p-6">
-              <div className="eyebrow mb-2">מהדורת אגוז</div>
+            <img src={imgB.url} alt="Walnut kitchen design" className="w-full h-full object-cover" />
+            <div className="absolute bottom-6 left-6 right-6 sm:right-auto sm:w-64 bg-cream/95 backdrop-blur p-6">
+              <div className="eyebrow mb-2">Walnut Edition</div>
               <p className="text-sm text-charcoal leading-relaxed">
-                עץ אגוז אמריקאי, אבן טבעית וקווים נקיים לחלל שנשאר עדכני לאורך זמן.
+                American walnut, natural stone, and clean lines for a space that stays timeless.
               </p>
             </div>
           </div>
@@ -169,20 +170,20 @@ function Detail() {
       <div className="container-lux grid lg:grid-cols-5 gap-14 items-center">
         <Reveal className="lg:col-span-3">
           <div className="relative aspect-[3/4] overflow-hidden">
-            <img src={imgC.url} alt="פרט תאורה במטבח יוקרה" className="w-full h-full object-cover" />
+            <img src={imgC.url} alt="Luxury kitchen lighting detail" className="w-full h-full object-cover" />
           </div>
         </Reveal>
         <Reveal delay={200} className="lg:col-span-2">
-          <div className="eyebrow mb-4">הפרטים</div>
+          <div className="eyebrow mb-4">The Details</div>
           <h2 className="text-4xl sm:text-5xl leading-[1.1] mb-6">
-            הפרט הקטן — הוא <span className="italic">ההבדל</span>
+            The smallest detail — is the <span className="italic">difference</span>
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed mb-8">
-            לורם איפסום דולור סיט אמט. אנו מקדישים תשומת לב אובססיבית לכל נגיעה — פליז מוברש,
-            תאורה חמה מתחת למדף, וטקסטורות טבעיות שמתעוררות לחיים באור הצהריים של קליפורניה.
+            We pay obsessive attention to every touch — brushed brass, warm under-shelf lighting,
+            and natural textures that come alive in the California afternoon sun.
           </p>
           <ul className="space-y-4">
-            {["פליז ופרזול בגימור יד", "תאורה חמה משולבת", "ידיות חבויות ומגירות שקטות", "אבן טבעית עם וריאציות ייחודיות"].map((x, i) => (
+            {["Hand-finished brass and hardware", "Integrated warm lighting", "Concealed handles and soft-close drawers", "Natural stone with one-of-a-kind veining"].map((x, i) => (
               <li key={i} className="flex items-center gap-4 border-b border-border pb-4">
                 <span className="text-gold-deep font-serif text-lg">0{i + 1}</span>
                 <span className="text-charcoal">{x}</span>
@@ -197,19 +198,19 @@ function Detail() {
 
 function Features() {
   const items = [
-    { t: "תכנון אדריכלי", d: "לורם איפסום — תכנון תלת ממדי מדויק שמותאם לחלל ולזרימה של הבית שלכם." },
-    { t: "חומרים אצילים", d: "אבן קלקטה, עץ אגוז אמריקאי, פליז מוברש — כל חומר נבחר ידנית." },
-    { t: "ביצוע ללא פשרות", d: "צוות מתקינים מומחה שמלווה את הפרויקט מהקיר הראשון ועד הניקיון האחרון." },
-    { t: "אחריות מלאה", d: "אחריות מורחבת על עבודה, חומרים ופרזול — כי מטבח יוקרה נבנה לדורות." },
+    { t: "Architectural Planning", d: "Precise 3D planning tailored to the flow and proportions of your home." },
+    { t: "Noble Materials", d: "Calacatta stone, American walnut, brushed brass — every material hand-selected." },
+    { t: "Uncompromising Execution", d: "An expert install team guiding your project from the first wall to the final polish." },
+    { t: "Full Warranty", d: "Extended warranty on workmanship, materials, and hardware — built to last generations." },
   ];
   return (
     <section className="py-24 sm:py-32">
       <div className="container-lux">
         <Reveal>
           <div className="max-w-2xl mb-16">
-            <div className="eyebrow mb-4">הגישה שלנו</div>
+            <div className="eyebrow mb-4">Our Approach</div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-[1.1]">
-              מדוע משפחות בסן דייגו בוחרות בנו
+              Why San Diego homeowners choose us
             </h2>
           </div>
         </Reveal>
@@ -232,21 +233,20 @@ function Features() {
 function MoodyBreak() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <img src={imgD.url} alt="מטבח יוקרה מודרני כהה" className="absolute inset-0 w-full h-full object-cover" />
-      <div className="absolute inset-0 bg-gradient-to-l from-ink/85 via-ink/55 to-transparent" />
+      <img src={imgD.url} alt="Modern dark luxury kitchen" className="absolute inset-0 w-full h-full object-cover" />
+      <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-transparent" />
       <div className="relative container-lux py-24 text-cream">
         <Reveal>
           <div className="max-w-xl">
             <div className="eyebrow text-gold mb-6">Signature Series</div>
             <h2 className="font-serif text-4xl sm:text-6xl leading-[1.05] mb-6 font-light">
-              מטבח שאתם <span className="italic text-gold">לעולם לא</span> רוצים לעזוב
+              A kitchen you <span className="italic text-gold">never</span> want to leave
             </h2>
             <p className="text-cream/80 text-lg leading-relaxed mb-8">
-              לורם איפסום דולור סיט אמט. תאורה חמה, אבן מלוטשת, וקווים
-              שנשארים רלוונטיים גם בעוד עשרים שנה.
+              Warm lighting, polished stone, and lines that stay relevant twenty years from now.
             </p>
             <a href="#apply" className="btn-gold btn-gold-hover bg-transparent border-cream text-cream hover:bg-gold hover:border-gold hover:text-ink">
-              קבעו ייעוץ בהנחת 25%
+              Book Your 25% Off Consultation
             </a>
           </div>
         </Reveal>
@@ -257,19 +257,19 @@ function MoodyBreak() {
 
 function Process() {
   const steps = [
-    { n: "01", t: "שיחת היכרות", d: "שיחה קצרה להבנת הצרכים, הסגנון וטווח התקציב." },
-    { n: "02", t: "ייעוץ בבית", d: "ביקור ללא עלות במטבח שלכם בסן דייגו לתכנון ומדידות." },
-    { n: "03", t: "תכנון ועיצוב", d: "הדמיה תלת ממדית, לוחות חומרים והצעה מפורטת." },
-    { n: "04", t: "ביצוע והתקנה", d: "ליווי מלא עד למסירה של מטבח שאתם גאים בו." },
+    { n: "01", t: "Discovery Call", d: "A short conversation to understand your needs, style, and budget." },
+    { n: "02", t: "In-Home Consultation", d: "A complimentary visit to your San Diego home for planning and measurements." },
+    { n: "03", t: "Design & Proposal", d: "3D visualization, material boards, and a detailed proposal." },
+    { n: "04", t: "Build & Install", d: "Full project management through to a kitchen you are proud of." },
   ];
   return (
     <section className="bg-cream py-24 sm:py-32">
       <div className="container-lux">
         <Reveal>
           <div className="max-w-2xl mb-16">
-            <div className="eyebrow mb-4">התהליך</div>
+            <div className="eyebrow mb-4">The Process</div>
             <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-[1.1]">
-              ארבעה שלבים אל <span className="italic text-gold-deep">מטבח החלומות</span>
+              Four steps to your <span className="italic text-gold-deep">dream kitchen</span>
             </h2>
           </div>
         </Reveal>
@@ -295,19 +295,19 @@ function Compare() {
       <div className="container-lux">
         <Reveal>
           <div className="text-center max-w-2xl mx-auto mb-16">
-            <div className="eyebrow mb-4">ההבדל</div>
+            <div className="eyebrow mb-4">The Difference</div>
             <h2 className="text-4xl sm:text-5xl leading-[1.1]">
-              במקום לשלם מחיר מלא — הבטיחו את הנחת ה־25%
+              Instead of paying full price — claim your 25% off
             </h2>
           </div>
         </Reveal>
         <div className="grid md:grid-cols-2 gap-6">
           <Reveal>
             <div className="border border-border p-10 h-full">
-              <div className="eyebrow text-muted-foreground mb-4">רגיל</div>
-              <h3 className="text-2xl mb-6">שיפוץ מטבח סטנדרטי</h3>
+              <div className="eyebrow text-muted-foreground mb-4">Standard</div>
+              <h3 className="text-2xl mb-6">Typical Kitchen Remodel</h3>
               <ul className="space-y-3 text-muted-foreground">
-                {["תמחור מלא", "ללא הנחה", "ייעוץ סטנדרטי", "לוח זמנים רגיל"].map((x) => (
+                {["Full pricing", "No discount", "Standard consultation", "Regular timeline"].map((x) => (
                   <li key={x} className="flex gap-3 items-center"><span className="text-stone">—</span>{x}</li>
                 ))}
               </ul>
@@ -315,17 +315,17 @@ function Compare() {
           </Reveal>
           <Reveal delay={150}>
             <div className="border-2 border-gold-deep bg-sand/30 p-10 h-full relative">
-              <span className="absolute -top-3 right-8 bg-gold-deep text-cream text-[0.65rem] tracking-[0.25em] uppercase px-3 py-1">
-                החודש בלבד
+              <span className="absolute -top-3 left-8 bg-gold-deep text-cream text-[0.65rem] tracking-[0.25em] uppercase px-3 py-1">
+                This Month Only
               </span>
-              <div className="eyebrow text-gold-deep mb-4">מהדורה מוגבלת</div>
-              <h3 className="text-2xl mb-6">חבילת ייעוץ פרימיום · 25% הנחה</h3>
+              <div className="eyebrow text-gold-deep mb-4">Limited Edition</div>
+              <h3 className="text-2xl mb-6">Premium Consultation Package · 25% Off</h3>
               <ul className="space-y-3 text-charcoal">
-                {["25% הנחה על ייעוץ עיצוב", "הדמיה תלת ממדית ללא עלות", "ביקור בבית ללא התחייבות", "ליווי אישי של מעצב בכיר", "לוחות חומרים בהתאמה"].map((x) => (
+                {["25% off design consultation", "Complimentary 3D visualization", "In-home visit, no obligation", "Personal senior designer", "Custom material boards"].map((x) => (
                   <li key={x} className="flex gap-3 items-center"><span className="text-gold-deep">◆</span>{x}</li>
                 ))}
               </ul>
-              <a href="#apply" className="btn-gold btn-gold-hover mt-8 w-full">בדקו אם המטבח שלכם מתאים</a>
+              <a href="#apply" className="btn-gold btn-gold-hover mt-8 w-full">See If Your Kitchen Qualifies</a>
             </div>
           </Reveal>
         </div>
@@ -341,18 +341,17 @@ function FinalDetail() {
         <Reveal>
           <div className="eyebrow mb-4">Craft · Detail</div>
           <h2 className="text-4xl sm:text-5xl leading-[1.1] mb-6">
-            עבודת יד. <span className="italic text-gold-deep">אור טבעי.</span>
-            <br />שקט.
+            Handcrafted. <span className="italic text-gold-deep">Natural light.</span>
+            <br />Quiet.
           </h2>
           <p className="text-muted-foreground text-lg leading-relaxed">
-            לורם איפסום דולור סיט אמט, קונסקטורר אדיפיסינג אלית. סד דו איוסמוד
-            טמפור אינסידונט. אנו יוצרים מטבחים שנעים בהם בטבעיות, מבשלים בהם בהנאה,
-            ומארחים בהם משפחה וחברים לאורך שנים.
+            We create kitchens you move through effortlessly, cook in with pleasure, and
+            gather in with family and friends for many years to come.
           </p>
         </Reveal>
         <Reveal delay={200}>
           <div className="relative aspect-[3/4] overflow-hidden">
-            <img src={imgE.url} alt="מדף מטבח מעוצב עם תאורה חמה" className="w-full h-full object-cover" />
+            <img src={imgE.url} alt="Designed kitchen shelf with warm lighting" className="w-full h-full object-cover" />
           </div>
         </Reveal>
       </div>
@@ -365,18 +364,18 @@ function FormSection() {
     <section id="apply" className="py-24 sm:py-32 bg-ink text-cream">
       <div className="container-lux grid lg:grid-cols-2 gap-14 items-start">
         <Reveal>
-          <div className="eyebrow text-gold mb-4">הצעד הראשון</div>
+          <div className="eyebrow text-gold mb-4">The First Step</div>
           <h2 className="font-serif text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6 font-light">
-            הבטיחו את
-            <br /><span className="italic text-gold">25% ההנחה</span>
-            <br />על הייעוץ שלכם
+            Claim your
+            <br /><span className="italic text-gold">25% discount</span>
+            <br />on your consultation
           </h2>
           <p className="text-cream/75 text-lg leading-relaxed mb-8 max-w-md">
-            שלושה שלבים קצרים, פחות מדקה. נציג בכיר יחזור אליכם תוך 24 שעות
-            לתיאום ייעוץ אישי בבית שלכם בסן דייגו.
+            Three short steps, less than a minute. A senior designer will be in touch
+            within 24 hours to schedule your in-home consultation in San Diego.
           </p>
           <ul className="space-y-3 text-cream/80">
-            {["ייעוץ חינם ללא התחייבות", "25% הנחה על תכנון וליווי", "זמין החודש בלבד"].map((x) => (
+            {["Free, no-obligation consultation", "25% off design and project guidance", "Available this month only"].map((x) => (
               <li key={x} className="flex items-center gap-3"><span className="text-gold">◆</span>{x}</li>
             ))}
           </ul>
@@ -391,19 +390,19 @@ function FormSection() {
 
 function FAQ() {
   const qs = [
-    { q: "האם ההנחה של 25% מובטחת?", a: "לורם איפסום דולור סיט אמט. ההנחה בתוקף לחמשת הבתים שייבחרו החודש בסן דייגו." },
-    { q: "האם הייעוץ באמת חינם?", a: "כן, הביקור בבית והייעוץ הראשוני ניתנים ללא עלות וללא התחייבות." },
-    { q: "אילו אזורים אתם משרתים?", a: "כל אזור סן דייגו רבתי — לה חויה, דל מאר, קורונדו, אנסיניטאס ועוד." },
-    { q: "כמה זמן לוקח פרויקט טיפוסי?", a: "בין 6 ל־12 שבועות מרגע החתימה על התוכנית — תלוי בהיקף הפרויקט." },
-    { q: "האם צריך להחליט היום?", a: "לא — אבל מספר המקומות החודש מוגבל לחמישה בתים בלבד." },
+    { q: "Is the 25% discount guaranteed?", a: "Yes — the discount is reserved for the five San Diego homes selected this month." },
+    { q: "Is the consultation really free?", a: "Yes. The in-home visit and initial consultation are complimentary and come with no obligation." },
+    { q: "Which areas do you serve?", a: "The greater San Diego area — La Jolla, Del Mar, Coronado, Encinitas, and beyond." },
+    { q: "How long does a typical project take?", a: "Between 6 and 12 weeks from plan sign-off, depending on the scope of the project." },
+    { q: "Do I need to decide today?", a: "No — but this month is limited to just five homes." },
   ];
   return (
     <section className="py-24 sm:py-32">
       <div className="container-lux max-w-3xl">
         <Reveal>
           <div className="text-center mb-14">
-            <div className="eyebrow mb-4">שאלות נפוצות</div>
-            <h2 className="text-4xl sm:text-5xl">שאלות שנשאלנו</h2>
+            <div className="eyebrow mb-4">FAQ</div>
+            <h2 className="text-4xl sm:text-5xl">Questions we're asked</h2>
           </div>
         </Reveal>
         <div className="divide-y divide-border border-y border-border">
@@ -429,20 +428,20 @@ function Footer() {
     <footer className="bg-ink text-cream/70 py-16">
       <div className="container-lux grid md:grid-cols-3 gap-10">
         <div>
-          <div className="font-serif text-2xl text-cream mb-3">מטבחי סן דייגו</div>
+          <div className="font-serif text-2xl text-cream mb-3">San Diego Kitchens</div>
           <p className="text-sm leading-relaxed">
-            עיצוב וביצוע מטבחי יוקרה בהתאמה אישית ברחבי מחוז סן דייגו.
+            Bespoke luxury kitchen design and build across San Diego County.
           </p>
         </div>
         <div>
-          <div className="eyebrow text-gold mb-3">יצירת קשר</div>
+          <div className="eyebrow text-gold mb-3">Contact</div>
           <p className="text-sm">San Diego, California</p>
           <p className="text-sm mt-1">hello@sd-kitchens.example</p>
         </div>
         <div>
-          <div className="eyebrow text-gold mb-3">שעות</div>
-          <p className="text-sm">ראשון–חמישי · 9:00–18:00</p>
-          <p className="text-sm mt-1">ביקורי בית בתיאום מראש</p>
+          <div className="eyebrow text-gold mb-3">Hours</div>
+          <p className="text-sm">Monday–Friday · 9:00–18:00</p>
+          <p className="text-sm mt-1">In-home visits by appointment</p>
         </div>
       </div>
       <div className="container-lux mt-12 pt-6 border-t border-cream/10 text-xs tracking-[0.2em] uppercase text-cream/50 flex flex-wrap justify-between gap-3">
