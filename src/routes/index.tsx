@@ -26,6 +26,7 @@ function Landing() {
     <div className="bg-background text-foreground overflow-x-hidden">
       <Nav />
       <Hero />
+      <ExclusiveOffer />
       <Marquee />
       <About />
       <Detail />
