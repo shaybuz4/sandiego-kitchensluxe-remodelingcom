@@ -26,6 +26,7 @@ function Landing() {
     <div className="bg-background text-foreground overflow-x-hidden">
       <Nav />
       <Hero />
+      <ExclusiveOffer />
       <Marquee />
       <About />
       <Detail />
@@ -93,6 +94,52 @@ function Hero() {
               Free consultation · No obligation
             </span>
           </div>
+        </Reveal>
+      </div>
+    </section>
+  );
+}
+
+function ExclusiveOffer() {
+  const benefits = [
+    "Only 5 kitchens will be selected in San Diego",
+    "Selected homeowners qualify for 25% OFF",
+    "Free in-home luxury consultation",
+    "Before-and-after showcase opportunity",
+    "Premium countertops, custom cabinetry & finishes",
+    "Full surface, backsplash & custom upgrades",
+  ];
+  return (
+    <section className="bg-cream py-24 sm:py-32">
+      <div className="container-lux max-w-4xl mx-auto text-center">
+        <Reveal>
+          <div className="eyebrow text-gold-deep mb-4">Exclusive Offer · Limited Availability</div>
+          <h2 className="text-4xl sm:text-5xl lg:text-6xl leading-[1.1] mb-6">
+            We're Selecting{" "}
+            <span className="text-gold-deep">5 Kitchens</span>{" "}
+            in San Diego for a Before & After Transformation
+          </h2>
+          <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-4">
+            Selected San Diego homeowners may qualify for 25% OFF their kitchen remodel in exchange for allowing before-and-after project photos.
+          </p>
+          <p className="text-base text-muted-foreground leading-relaxed max-w-2xl mx-auto mb-12">
+            Our team is looking for 5 select kitchens this month in San Diego to feature in our luxury remodeling portfolio.
+          </p>
+        </Reveal>
+        <Reveal delay={150}>
+          <div className="grid sm:grid-cols-2 gap-x-8 gap-y-5 text-left max-w-3xl mx-auto mb-12">
+            {benefits.map((benefit) => (
+              <div key={benefit} className="flex items-start gap-4">
+                <span className="flex-shrink-0 w-6 h-6 rounded-full bg-gold-deep/10 text-gold-deep flex items-center justify-center text-sm font-serif">✓</span>
+                <span className="text-charcoal leading-relaxed">{benefit}</span>
+              </div>
+            ))}
+          </div>
+        </Reveal>
+        <Reveal delay={250}>
+          <a href="#apply" className="btn-gold btn-gold-hover inline-flex items-center justify-center">
+            Check If Your Kitchen Qualifies
+          </a>
         </Reveal>
       </div>
     </section>
