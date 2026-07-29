@@ -2,12 +2,12 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
 
-// ייבוא ישיר שמכריח את Vite לארוז את התמונות לשרת
-import imgA from "../../public/Kitchen-a.jpg";
-import imgB from "../../public/kitchen-b.jpg";
-import imgC from "../../public/kitchen-c.jpg";
-import imgD from "../../public/kitchen-d.jpg";
-import imgE from "../../public/kitchen-e.jpg";
+// הוספנו ?v=2 כדי להכריח את השרת לטעון את התמונות מחדש בכוח!
+const imgA = "/Kitchen-a.jpg?v=2";
+const imgB = "/kitchen-b.jpg?v=2";
+const imgC = "/kitchen-c.jpg?v=2";
+const imgD = "/kitchen-d.jpg?v=2";
+const imgE = "/kitchen-e.jpg?v=2";
 
 export const Route = createFileRoute("/")({
   component: Landing,
