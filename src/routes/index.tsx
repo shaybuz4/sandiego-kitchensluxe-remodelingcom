@@ -1,11 +1,12 @@
 import { createFileRoute } from "@tanstack/react-router";
-import imgA from "@/assets/A_Kitchen_12.jpg.asset.json";
-import imgB from "@/assets/B_kitchen_14.jpg.asset.json";
-import imgC from "@/assets/C_kitchen_16.jpg.asset.json";
-import imgD from "@/assets/D_kitchen_23.jpg.asset.json";
-import imgE from "@/assets/E_kitchen_17.jpg.asset.json";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
+
+const imgA = "/Kitchen-a.jpg";
+const imgB = "/kitchen-b.jpg";
+const imgC = "/kitchen-c.jpg";
+const imgD = "/kitchen-d.jpg";
+const imgE = "/kitchen-e.jpg";
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -15,8 +16,8 @@ export const Route = createFileRoute("/")({
       { name: "description", content: "Custom-designed luxury kitchens for San Diego homes. Claim your exclusive 25% consultation discount today." },
       { property: "og:title", content: "Bespoke Luxury Kitchens in San Diego — 25% Off Consultation" },
       { property: "og:description", content: "Transform your home with custom craftsmanship and timeless design. Claim your exclusive 25% consultation discount." },
-      { property: "og:image", content: imgA.url },
-      { name: "twitter:image", content: imgA.url },
+      { property: "og:image", content: imgA },
+      { name: "twitter:image", content: imgA },
     ],
   }),
 });
@@ -62,7 +63,7 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-[100svh] flex items-end overflow-hidden">
-      <img src={imgA.url} alt="Luxury kitchen in San Diego" className="absolute inset-0 w-full h-full object-cover" />
+      <img src={imgA} alt="Luxury kitchen in San Diego" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 hero-vignette" />
       <div className="relative container-lux pb-20 sm:pb-28 pt-32 text-cream">
         <Reveal>
@@ -188,7 +189,7 @@ function About() {
         </Reveal>
         <Reveal delay={200} className="order-1 lg:order-2">
           <div className="relative aspect-[4/5] overflow-hidden">
-            <img src={imgB.url} alt="Walnut kitchen design" className="w-full h-full object-cover" />
+            <img src={imgB} alt="Walnut kitchen design" className="w-full h-full object-cover" />
             <div className="absolute bottom-6 left-6 right-6 sm:right-auto sm:w-64 bg-cream/95 backdrop-blur p-6">
               <div className="eyebrow mb-2">Walnut Edition</div>
               <p className="text-sm text-charcoal leading-relaxed">
@@ -217,7 +218,7 @@ function Detail() {
       <div className="container-lux grid lg:grid-cols-5 gap-14 items-center">
         <Reveal className="lg:col-span-3">
           <div className="relative aspect-[3/4] overflow-hidden">
-            <img src={imgC.url} alt="Luxury kitchen lighting detail" className="w-full h-full object-cover" />
+            <img src={imgC} alt="Luxury kitchen lighting detail" className="w-full h-full object-cover" />
           </div>
         </Reveal>
         <Reveal delay={200} className="lg:col-span-2">
@@ -280,7 +281,7 @@ function Features() {
 function MoodyBreak() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <img src={imgD.url} alt="Modern dark luxury kitchen" className="absolute inset-0 w-full h-full object-cover" />
+      <img src={imgD} alt="Modern dark luxury kitchen" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-transparent" />
       <div className="relative container-lux py-24 text-cream">
         <Reveal>
@@ -398,7 +399,7 @@ function FinalDetail() {
         </Reveal>
         <Reveal delay={200}>
           <div className="relative aspect-[3/4] overflow-hidden">
-            <img src={imgE.url} alt="Designed kitchen shelf with warm lighting" className="w-full h-full object-cover" />
+            <img src={imgE} alt="Designed kitchen shelf with warm lighting" className="w-full h-full object-cover" />
           </div>
         </Reveal>
       </div>
