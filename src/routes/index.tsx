@@ -1,13 +1,48 @@
+import { useState } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
 
-// הוספנו ?v=2 כדי להכריח את השרת לטעון את התמונות מחדש בכוח!
-const imgA = "/Kitchen-a.jpg?v=2";
-const imgB = "/kitchen-b.jpg?v=2";
-const imgC = "/kitchen-c.jpg?v=2";
-const imgD = "/kitchen-d.jpg?v=2";
-const imgE = "/kitchen-e.jpg?v=2";
+// נתיבי הבסיס לתמונות
+const imgA = "/Kitchen-a.jpg";
+const imgB = "/kitchen-b.jpg";
+const imgC = "/kitchen-c.jpg";
+const imgD = "/kitchen-d.jpg";
+const imgE = "/kitchen-e.jpg";
+
+// רכיב תמונה חכם שמטפל בשגיאות טעינה, אותיות גדולות/קטנות וסיומות באופן אוטומטי
+function SmartImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+  const [imgSrc, setImgSrc] = useState(src);
+  const [attempt, setAttempt] = useState(0);
+
+  const handleError = () => {
+    if (attempt === 0) {
+      // ניסיון 1: החלפה בין אות גדולה לקטנה בתחילת השם
+      const toggled = imgSrc.includes("/kitchen-")
+        ? imgSrc.replace("/kitchen-", "/Kitchen-")
+        : imgSrc.replace("/Kitchen-", "/kitchen-");
+      setImgSrc(toggled);
+      setAttempt(1);
+    } else if (attempt === 1) {
+      // ניסיון 2: בדיקת סיומת PNG
+      setImgSrc(src.replace(/\.jpg$/i, ".png"));
+      setAttempt(2);
+    } else if (attempt === 2) {
+      // ניסיון 3: בדיקת סיומת JPG באותיות גדולות
+      setImgSrc(src.replace(/\.jpg$/i, ".JPG"));
+      setAttempt(3);
+    }
+  };
+
+  return (
+    <img
+      src={imgSrc}
+      alt={alt}
+      className={className}
+      onError={handleError}
+    />
+  );
+}
 
 export const Route = createFileRoute("/")({
   component: Landing,
@@ -64,7 +99,7 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-[100svh] flex items-end overflow-hidden">
-      <img src={imgA} alt="Luxury kitchen in San Diego" className="absolute inset-0 w-full h-full object-cover" />
+      <SmartImage src={imgA} alt="Luxury kitchen in San Diego" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 hero-vignette" />
       <div className="relative container-lux pb-20 sm:pb-28 pt-32 text-cream">
         <Reveal>
@@ -190,7 +225,7 @@ function About() {
         </Reveal>
         <Reveal delay={200} className="order-1 lg:order-2">
           <div className="relative aspect-[4/5] overflow-hidden">
-            <img src={imgB} alt="Walnut kitchen design" className="w-full h-full object-cover" />
+            <SmartImage src={imgB} alt="Walnut kitchen design" className="w-full h-full object-cover" />
             <div className="absolute bottom-6 left-6 right-6 sm:right-auto sm:w-64 bg-cream/95 backdrop-blur p-6">
               <div className="eyebrow mb-2">Walnut Edition</div>
               <p className="text-sm text-charcoal leading-relaxed">
@@ -219,7 +254,7 @@ function Detail() {
       <div className="container-lux grid lg:grid-cols-5 gap-14 items-center">
         <Reveal className="lg:col-span-3">
           <div className="relative aspect-[3/4] overflow-hidden">
-            <img src={imgC} alt="Luxury kitchen lighting detail" className="w-full h-full object-cover" />
+            <SmartImage src={imgC} alt="Luxury kitchen lighting detail" className="w-full h-full object-cover" />
           </div>
         </Reveal>
         <Reveal delay={200} className="lg:col-span-2">
@@ -282,7 +317,7 @@ function Features() {
 function MoodyBreak() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <img src={imgD} alt="Modern dark luxury kitchen" className="absolute inset-0 w-full h-full object-cover" />
+      <SmartImage src={imgD} alt="Modern dark luxury kitchen" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-transparent" />
       <div className="relative container-lux py-24 text-cream">
         <Reveal>
@@ -400,7 +435,7 @@ function FinalDetail() {
         </Reveal>
         <Reveal delay={200}>
           <div className="relative aspect-[3/4] overflow-hidden">
-            <img src={imgE} alt="Designed kitchen shelf with warm lighting" className="w-full h-full object-cover" />
+            <SmartImage src={imgE} alt="Designed kitchen shelf with warm lighting" className="w-full h-full object-cover" />
           </div>
         </Reveal>
       </div>
