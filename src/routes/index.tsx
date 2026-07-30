@@ -3,37 +3,34 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
 
+// 1. תמונות אמינות מהשרת הראשי + תמונות גיבוי באיכות HD
 const imgA = "/Kitchen-a.jpg";
-const imgB = "/kitchen-b.jpg";
+const imgB = "https://kitchens.76.13.139.101.nip.io/kitchen-b.jpg";
 const imgC = "/kitchen-c.jpg";
-const imgD = "/kitchen-d.jpg";
-const imgE = "/kitchen-e.jpg";
+const imgD = "https://kitchens.76.13.139.101.nip.io/kitchen-d.jpg";
+const imgE = "https://kitchens.76.13.139.101.nip.io/kitchen-e.jpg";
 
-// גיבוי תמונות יוקרה ברזולוציה גבוהה מ-CDN מובטח
-const fallbackImages: Record<string, string> = {
-  "/Kitchen-a.jpg": "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1600&q=80",
-  "/kitchen-b.jpg": "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
-  "/kitchen-c.jpg": "https://images.unsplash.com/photo-1600565193348-f74bd3c7ccdf?auto=format&fit=crop&w=1200&q=80",
-  "/kitchen-d.jpg": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
-  "/kitchen-e.jpg": "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80",
+// תמונות גיבוי למקרה חריג
+const fallbacks: Record<string, string> = {
+  imgB: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
+  imgD: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
+  imgE: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80",
 };
 
-function SafeImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+// רכיב תמונה חסין תקלות
+function RobustImage({ src, fallbackKey, alt, className }: { src: string; fallbackKey?: string; alt: string; className?: string }) {
   const [currentSrc, setCurrentSrc] = useState(src);
-
-  const handleError = () => {
-    const fallback = fallbackImages[src] || fallbackImages["/Kitchen-a.jpg"];
-    if (currentSrc !== fallback) {
-      setCurrentSrc(fallback);
-    }
-  };
 
   return (
     <img
       src={currentSrc}
       alt={alt}
       className={className}
-      onError={handleError}
+      onError={() => {
+        if (fallbackKey && fallbacks[fallbackKey] && currentSrc !== fallbacks[fallbackKey]) {
+          setCurrentSrc(fallbacks[fallbackKey]);
+        }
+      }}
     />
   );
 }
@@ -93,7 +90,7 @@ function Nav() {
 function Hero() {
   return (
     <section className="relative min-h-[100svh] flex items-end overflow-hidden">
-      <SafeImage src={imgA} alt="Luxury kitchen in San Diego" className="absolute inset-0 w-full h-full object-cover" />
+      <RobustImage src={imgA} alt="Luxury kitchen in San Diego" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 hero-vignette" />
       <div className="relative container-lux pb-20 sm:pb-28 pt-32 text-cream">
         <Reveal>
@@ -219,7 +216,7 @@ function About() {
         </Reveal>
         <Reveal delay={200} className="order-1 lg:order-2">
           <div className="relative aspect-[4/5] overflow-hidden">
-            <SafeImage src={imgB} alt="Walnut kitchen design" className="w-full h-full object-cover" />
+            <RobustImage src={imgB} fallbackKey="imgB" alt="Walnut kitchen design" className="w-full h-full object-cover" />
             <div className="absolute bottom-6 left-6 right-6 sm:right-auto sm:w-64 bg-cream/95 backdrop-blur p-6">
               <div className="eyebrow mb-2">Walnut Edition</div>
               <p className="text-sm text-charcoal leading-relaxed">
@@ -248,7 +245,7 @@ function Detail() {
       <div className="container-lux grid lg:grid-cols-5 gap-14 items-center">
         <Reveal className="lg:col-span-3">
           <div className="relative aspect-[3/4] overflow-hidden">
-            <SafeImage src={imgC} alt="Luxury kitchen lighting detail" className="w-full h-full object-cover" />
+            <RobustImage src={imgC} alt="Luxury kitchen lighting detail" className="w-full h-full object-cover" />
           </div>
         </Reveal>
         <Reveal delay={200} className="lg:col-span-2">
@@ -311,7 +308,7 @@ function Features() {
 function MoodyBreak() {
   return (
     <section className="relative min-h-[85vh] flex items-center overflow-hidden">
-      <SafeImage src={imgD} alt="Modern dark luxury kitchen" className="absolute inset-0 w-full h-full object-cover" />
+      <RobustImage src={imgD} fallbackKey="imgD" alt="Modern dark luxury kitchen" className="absolute inset-0 w-full h-full object-cover" />
       <div className="absolute inset-0 bg-gradient-to-r from-ink/85 via-ink/55 to-transparent" />
       <div className="relative container-lux py-24 text-cream">
         <Reveal>
@@ -429,7 +426,7 @@ function FinalDetail() {
         </Reveal>
         <Reveal delay={200}>
           <div className="relative aspect-[3/4] overflow-hidden">
-            <SafeImage src={imgE} alt="Designed kitchen shelf with warm lighting" className="w-full h-full object-cover" />
+            <RobustImage src={imgE} fallbackKey="imgE" alt="Designed kitchen shelf with warm lighting" className="w-full h-full object-cover" />
           </div>
         </Reveal>
       </div>
