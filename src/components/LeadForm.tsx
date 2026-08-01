@@ -166,24 +166,30 @@ export function LeadForm() {
           </div>
         )}
 
+        {error && (
+          <p className="mt-6 text-sm text-destructive">{error}</p>
+        )}
+
         <div className="flex items-center justify-between gap-4 mt-10">
           {step > 1 ? (
             <button
               onClick={() => setStep(step - 1)}
-              className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-ink transition-colors"
+              disabled={submitting}
+              className="text-sm tracking-[0.15em] uppercase text-muted-foreground hover:text-ink transition-colors disabled:opacity-40"
             >
               ← Back
             </button>
           ) : <span />}
 
           <button
-            disabled={!canNext}
-            onClick={() => (step === 3 ? setDone(true) : setStep(step + 1))}
+            disabled={!canNext || submitting}
+            onClick={() => (step === 3 ? handleSubmit() : setStep(step + 1))}
             className="btn-gold btn-gold-hover disabled:opacity-40 disabled:cursor-not-allowed"
           >
-            {step === 3 ? "Submit Request" : "Continue"}
+            {step === 3 ? (submitting ? "Sending…" : "Submit Request") : "Continue"}
           </button>
         </div>
+
       </div>
     </div>
   );
