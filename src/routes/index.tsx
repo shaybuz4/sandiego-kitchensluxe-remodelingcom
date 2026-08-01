@@ -3,19 +3,20 @@ import { createFileRoute } from "@tanstack/react-router";
 import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
 
-// 1. תמונות אמינות מהשרת הראשי + תמונות גיבוי באיכות HD
+// Image sources
 const imgA = "/Kitchen-a.jpg";
-const imgB = "https://kitchens.76.13.139.101.nip.io/kitchen-b.jpg";
+const imgB = "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80";
 const imgC = "/kitchen-c.jpg";
-const imgD = "https://kitchens.76.13.139.101.nip.io/kitchen-d.jpg";
-const imgE = "https://kitchens.76.13.139.101.nip.io/kitchen-e.jpg";
+const imgD = "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80";
+const imgE = "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80";
 
-// תמונות גיבוי למקרה חריג
+// Fallbacks
 const fallbacks: Record<string, string> = {
   imgB: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
   imgD: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
   imgE: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80",
 };
+
 
 // רכיב תמונה חסין תקלות
 function RobustImage({ src, fallbackKey, alt, className }: { src: string; fallbackKey?: string; alt: string; className?: string }) {
