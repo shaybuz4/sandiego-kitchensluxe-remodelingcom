@@ -11,9 +11,13 @@ const timelineOptions = [
   { value: "exploring", label: "Just exploring my options" },
 ];
 
+const GHL_WEBHOOK_URL = "YOUR_GHL_WEBHOOK_URL_HERE";
+
 export function LeadForm() {
   const [step, setStep] = useState(1);
   const [done, setDone] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [error, setError] = useState<string | null>(null);
   const [s1, setS1] = useState<Step1>({ fullName: "", phone: "", email: "" });
   const [s2, setS2] = useState<Step2>({ timeline: "" });
   const [s3, setS3] = useState<Step3>({ zip: "", vision: "" });
@@ -22,6 +26,36 @@ export function LeadForm() {
     (step === 1 && s1.fullName && s1.phone && s1.email) ||
     (step === 2 && s2.timeline) ||
     (step === 3 && s3.zip && s3.vision);
+
+  const handleSubmit = async () => {
+    setSubmitting(true);
+    setError(null);
+    const payload = {
+      fullName: s1.fullName,
+      phone: s1.phone,
+      email: s1.email,
+      timeline: timelineOptions.find((o) => o.value === s2.timeline)?.label ?? s2.timeline,
+      zipCode: s3.zip,
+      vision: s3.vision,
+      source: "San Diego Luxury Kitchens Landing Page",
+      submittedAt: new Date().toISOString(),
+    };
+
+    try {
+      const res = await fetch(GHL_WEBHOOK_URL, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
+      });
+      if (!res.ok) throw new Error(`Request failed with status ${res.status}`);
+      setDone(true);
+    } catch {
+      setError("We couldn't submit your request. Please try again or call us directly.");
+    } finally {
+      setSubmitting(false);
+    }
+  };
+
 
   if (done) {
     return (
