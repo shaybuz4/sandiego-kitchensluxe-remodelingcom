@@ -4,15 +4,12 @@ import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
 
 // Image sources
-import kitchenBAsset from "@/assets/kitchen-b.jpg.asset.json";
-import kitchenDAsset from "@/assets/kitchen-d.jpg.asset.json";
-import kitchenEAsset from "@/assets/kitchen-e.jpg.asset.json";
 
 const imgA = "/Kitchen-a.jpg";
-const imgB = kitchenBAsset.url;
+const imgB = "/kitchen-b.jpg";
 const imgC = "/kitchen-c.jpg";
-const imgD = kitchenDAsset.url;
-const imgE = kitchenEAsset.url;
+const imgD = "/kitchen-d.jpg";
+const imgE = "/kitchen-e.jpg";
 
 // Fallbacks
 const fallbacks: Record<string, string> = {};
