@@ -4,18 +4,19 @@ import { LeadForm } from "@/components/LeadForm";
 import { Reveal } from "@/components/Reveal";
 
 // Image sources
+import kitchenBAsset from "@/assets/kitchen-b.jpg.asset.json";
+import kitchenDAsset from "@/assets/kitchen-d.jpg.asset.json";
+import kitchenEAsset from "@/assets/kitchen-e.jpg.asset.json";
+
 const imgA = "/Kitchen-a.jpg";
-const imgB = "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80";
+const imgB = kitchenBAsset.url;
 const imgC = "/kitchen-c.jpg";
-const imgD = "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80";
-const imgE = "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80";
+const imgD = kitchenDAsset.url;
+const imgE = kitchenEAsset.url;
 
 // Fallbacks
-const fallbacks: Record<string, string> = {
-  imgB: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
-  imgD: "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=80",
-  imgE: "https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?auto=format&fit=crop&w=1200&q=80",
-};
+const fallbacks: Record<string, string> = {};
+
 
 
 // רכיב תמונה חסין תקלות
